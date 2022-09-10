@@ -1,0 +1,19 @@
+# Git
+.git
+.gitignore
+
+#Docker
+.docker
+
+#linter
+Makefile
+.flake8
+
+#Python
+app/__pycache__/
+app/*/__pycache__/
+app/*/*/__pycache__/
+app/*/*/*/__pycache__/
+.env/
+.vev/
+venv/
