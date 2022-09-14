@@ -39,7 +39,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-PROJECT_APPS = ["core", "user"]
+PROJECT_APPS = ["core", "user", "book"]
 
 THIRD_PARTY_APPS = ["rest_framework", "drf_spectacular", "rest_framework.authtoken"]
 
