@@ -1,18 +1,13 @@
 import pytest
 from book.serializers import BookSerializer
 from core.models import Book
-from django.contrib.auth import get_user_model
 from django.urls import reverse
 from rest_framework import status
+from tests.conftest import create_user
 
 CREATE_USER_URL = reverse("user:create")
 TOKEN_URL = reverse("user:token")
 BOOKS_URL = reverse("book:book-list")
-
-
-def create_user(**params):
-    """Create and return a new user."""
-    return get_user_model().objects.create_user(**params)
 
 
 def create_book(**params):

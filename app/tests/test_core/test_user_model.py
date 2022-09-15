@@ -27,7 +27,7 @@ def test_new_user_email_normalized():
         ["test4@example.COM", "test4@example.com"],
     ]
     for email, expected in sample_emails:
-        user = create_user(email, "sample123")
+        user = create_user(email=email, password="sample123")
         assert user.email == expected
 
 
@@ -35,7 +35,7 @@ def test_new_user_email_normalized():
 def test_new_user_without_email_raises_error():
     """Test that creating a user without an email raises a ValueError."""
     with pytest.raises(ValueError):
-        create_user("", "test123")
+        create_user(email="", password="test123")
 
 
 @pytest.mark.django_db
