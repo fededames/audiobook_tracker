@@ -1,7 +1,8 @@
 # Audiobook Tracker
 
 An API to store your notes when you are hearing your favourites audiobooks. <br />
-You will be also to receive the bestsellers books from New York Times and see the most scored posts about books in Reddit.
+Also, you will be able to receive the bestsellers books from New York Times and see the most scored posts about books in Reddit.
+
 ---
 ## Run
 ```bash 
