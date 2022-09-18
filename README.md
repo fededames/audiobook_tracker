@@ -19,7 +19,7 @@ $ make get_bestsellers
 $ make get_books_posts
 ```
 * If you do not want to create the required API key to receive books,<br />
-you can use 
+you can use the following command:
 ```bash
 $ make restore_db
 ```
