@@ -1,4 +1,4 @@
-from core.models import Book
+from core.models import Post
 from core.request_registry.post_registry import PostRegistry, QueryReddit
 from django.core.management.base import BaseCommand
 
@@ -12,5 +12,5 @@ class Command(BaseCommand):
         post_registry = PostRegistry(QueryReddit.url)
         post_registry.request()
         post_registry.filter_new()
-        Book.objects.bulk_create(post_registry.new_posts)
+        Post.objects.bulk_create(post_registry.new_posts)
         self.stdout.write(f"{len(post_registry.new_posts)} new posts saved")
