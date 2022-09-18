@@ -35,3 +35,8 @@ backup_db:
 PHONY: restore_db
 restore_db:
 	docker exec -i audiobook_tracker_db_1  pg_restore -U devuser -C -d postgres < db.dump
+
+
+.PHONY: get_best_sellers
+get_bestsellers:
+	docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py get_bestsellers"

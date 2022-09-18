@@ -53,11 +53,11 @@ class Book(models.Model):
 class Note(models.Model):
     """Book note"""
 
-    from_time = models.CharField(max_length=255)
-    to_time = models.CharField(max_length=255)
+    from_minute = models.IntegerField()
+    to_minute = models.IntegerField()
     title = models.CharField(max_length=255)
     details = models.CharField(max_length=255)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
     reader = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
