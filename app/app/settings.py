@@ -39,7 +39,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-PROJECT_APPS = ["core", "user"]
+PROJECT_APPS = ["core", "user", "book"]
 
 THIRD_PARTY_APPS = ["rest_framework", "drf_spectacular", "rest_framework.authtoken"]
 
@@ -82,10 +82,10 @@ WSGI_APPLICATION = "app.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "HOST": os.environ.get("DB_HOST"),
-        "NAME": os.environ.get("DB_NAME"),
-        "USER": os.environ.get("DB_USER"),
-        "PASSWORD": os.environ.get("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST", "localhost"),
+        "NAME": os.getenv("DB_NAME", "devdb"),
+        "USER": os.getenv("DB_USER", "devuser"),
+        "PASSWORD": os.getenv("DB_PASSWORD", "changeme"),
     }
 }
 

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
                                         PermissionsMixin)
 from django.db import models
@@ -42,8 +43,37 @@ class User(AbstractBaseUser, PermissionsMixin):
 class Book(models.Model):
     """Book object"""
 
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, unique=True)
     author = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class Note(models.Model):
+    """Book note"""
+
+    from_minute = models.IntegerField()
+    to_minute = models.IntegerField()
+    title = models.CharField(max_length=255)
+    details = models.CharField(max_length=255)
+    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
+    reader = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.title
+
+
+class Post(models.Model):
+    """Reddit post"""
+
+    title = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
+    score = models.IntegerField()
+    comments = models.IntegerField()
 
     def __str__(self):
         return self.title
