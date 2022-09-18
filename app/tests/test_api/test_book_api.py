@@ -11,7 +11,7 @@ BOOKS_URL = reverse("book:book-list")
 
 
 def create_book(**params):
-    """Create and return a sample book."""
+    """Create and return a book."""
     defaults = {
         "title": "Sample title",
         "author": "Sample author",

@@ -65,3 +65,15 @@ class Note(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Post(models.Model):
+    """Reddit post"""
+
+    title = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
+    score = models.IntegerField()
+    comments = models.IntegerField()
+
+    def __str__(self):
+        return self.title

@@ -25,7 +25,7 @@ migrations:
 
 .PHONY: test
 test: fmt
-	docker-compose run --rm app sh -c "python manage.py wait_for_db && pytest"
+	docker-compose run --rm app sh -c "python manage.py wait_for_db && pytest --disable-warnings tests -v"
 
 # With docker compose already up
 PHONY: backup_db
@@ -37,6 +37,11 @@ restore_db:
 	docker exec -i audiobook_tracker_db_1  pg_restore -U devuser -C -d postgres < db.dump
 
 
-.PHONY: get_best_sellers
+.PHONY: get_bestsellers
 get_bestsellers:
 	docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py get_bestsellers"
+
+
+.PHONY: get_books_posts
+get_books_posts:
+	docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py get_books_posts"

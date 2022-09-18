@@ -1,4 +1,4 @@
-from core.models import Book, Note
+from core.models import Book, Note, Post
 from rest_framework import serializers
 
 
@@ -17,4 +17,13 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
         fields = ["id", "title", "book_id", "from_minute", "to_minute", "details"]
+        read_only_fields = ["id"]
+
+
+class PostSerializer(serializers.ModelSerializer):
+    """Serializer for posts."""
+
+    class Meta:
+        model = Post
+        fields = ["id", "title", "url", "score", "comments"]
         read_only_fields = ["id"]
