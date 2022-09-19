@@ -5,6 +5,7 @@ Also, you will be able to receive the bestsellers books from New York Times and 
 
 ---
 ## Run
+* Create an .env file, and insert a NYT_KEY for using the management command get_bestsellers.
 ```bash 
 $ docker-compose up
 ```

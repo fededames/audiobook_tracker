@@ -4,8 +4,8 @@ from typing import Dict
 
 import requests
 from book.serializers import BookSerializer
-from core import RegistryFromRequest
 from core.models import Book
+from core.request_registry import RegistryFromRequest
 
 API_KEY = os.getenv("NYT_KEY")
 

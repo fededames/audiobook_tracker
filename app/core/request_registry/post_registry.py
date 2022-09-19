@@ -3,8 +3,8 @@ from typing import Dict, Optional
 
 import requests
 from book.serializers import PostSerializer
-from core import RegistryFromRequest
 from core.models import Post
+from core.request_registry import RegistryFromRequest
 
 
 class TooManyRequestsException(Exception):
